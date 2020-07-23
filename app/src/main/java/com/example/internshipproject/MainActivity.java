@@ -326,6 +326,7 @@ public class MainActivity extends AppCompatActivity {
 
                     //Setting the weather type
 
+                    setImage(weather);
                     Day.setText(weather);
 
 
@@ -338,7 +339,7 @@ public class MainActivity extends AppCompatActivity {
                     Wind.setText(Double.toString(wind)+" km/h");
 
 
-                    //Gwtting and setting the visibility
+                    //Getting and setting the visibility
 
                     weatherInfo = jsonObject.getString("visibility");
                     obj = new JSONObject(weatherInfo);
@@ -368,5 +369,29 @@ public class MainActivity extends AppCompatActivity {
 
 
         }
+    }
+    
+    public void setImage(String weatherType){
+        if(weatherType.equals("Haze"))
+        {
+            Image.setImageResource(R.drawable.haze);
+        }
+        else  if(weatherType.equals("Clouds"))
+        {
+            Image.setImageResource(R.drawable.cloudy);
+        }
+        else  if(weatherType.equals("Clear"))
+        {
+            Image.setImageResource(R.drawable.sunny);
+        }
+        else  if(weatherType.equals("Rain"))
+        {
+            Image.setImageResource(R.drawable.rainy);
+        }
+        else  if(weatherType.equals("Thunderstorm"))
+        {
+            Image.setImageResource(R.drawable.thunder);
+        }
+
     }
 }
